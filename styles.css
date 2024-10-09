@@ -41,12 +41,29 @@ h1 {
     width: 300px; 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative; 
 }
 
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 16px 40px rgba(107, 70, 193, 0.7);
-    border-color: #9b59b6; /* Change border color on hover */
+    border-color: #9b59b6; 
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover::before {
+    border-color: #6b46c1; 
 }
 
 .card-title {
