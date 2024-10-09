@@ -19,7 +19,7 @@
         <div class="card fadeIn">
             <h5 class="card-title">Aether</h5>
             <p class="card-text">Ein einfaches Terminal für Windows 11. Klicke auf den Button, um Aether herunterzuladen.</p>
-            <button class="btn" onclick="downloadAether()">Aether herunterladen</button>
+            <button class="btn" onclick="redirectToAether()">Aether herunterladen</button>
         </div>
 
         <div class="card fadeIn">
@@ -40,11 +40,8 @@
     </footer>
 
     <script>
-        function downloadAether() {
-            const confirmation = confirm("Möchtest du aether.exe herunterladen?");
-            if (confirmation) {
-                window.location.href = 'projekte/aether.exe';
-            }
+        function redirectToAether() {
+            window.location.href = "aether.html";
         }
 
         function downloadCryptix() {
