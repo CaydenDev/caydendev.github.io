@@ -27,6 +27,12 @@
             <p class="card-text">Ein einfaches Verschlüsselungs- und Entschlüsselungsprogramm. Klicke auf den Button, um Cryptix herunterzuladen.</p>
             <button class="btn" onclick="downloadCryptix()">Cryptix herunterladen</button>
         </div>
+
+        <div class="card fadeIn">
+            <h5 class="card-title">Texy</h5>
+            <p class="card-text">Ein einfacher Code-Editor/Text-Editor für ein selbst geschaffenes Assembly x86 OS. Klicke auf den Button, um das net8.zip herunterzuladen.</p>
+            <button class="btn" onclick="downloadTexy()">Texy herunterladen</button>
+        </div>
     </main>
 
     <footer class="footer">
@@ -45,6 +51,13 @@
             const confirmation = confirm("Möchtest du file_encryptor.exe herunterladen?");
             if (confirmation) {
                 window.location.href = 'projekte/file_encryptor.exe';
+            }
+        }
+
+        function downloadTexy() {
+            const confirmation = confirm("Möchtest du net8.zip herunterladen?");
+            if (confirmation) {
+                window.location.href = 'projekte/net8.zip';
             }
         }
     </script>
