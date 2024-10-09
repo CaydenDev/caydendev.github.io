@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cayden's Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="aether-icon.png" type="image/png">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="fadeIn">Cayden's Website</h1>
+        <p class="lead fadeIn">Dies ist meine Persönliche Website</p>
+    </header>
+
+    <main class="container">
+        <div class="card fadeIn">
+            <h5 class="card-title">Aether</h5>
+            <p class="card-text">Ein einfaches Terminal für Windows 11. Klicke auf den Button, um Aether herunterzuladen.</p>
+            <button class="btn" onclick="downloadAether()">Aether herunterladen</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Aether Terminal © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function downloadAether() {
+            const confirmation = confirm("Möchtest du aether.exe herunterladen?");
+            if (confirmation) {
+                window.location.href = 'aether.exe';
+            }
+        }
+    </script>
+</body>
+
+</html>
