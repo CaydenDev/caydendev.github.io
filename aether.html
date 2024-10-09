@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Terminal - Cayden's Website</title>
+    <link rel="stylesheet" href="aether.css">
+    <link rel="icon" href="aether-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="fadeIn">Aether Terminal</h1>
+        <p class="lead fadeIn">Die Privatsphäre in deiner Hand</p>
+    </header>
+
+    <main class="container">
+        <div class="card fadeIn">
+            <h5 class="card-title"><i class="fas fa-lock"></i> Datenschutz</h5>
+            <p class="card-text">Aether ist auf Privatsphäre und Datenschutz fokussiert, damit deine Daten sicher sind.</p>
+        </div>
+
+        <div class="card fadeIn">
+            <h5 class="card-title"><i class="fas fa-code"></i> Zugriff auf das System</h5>
+            <p class="card-text">Direkter Zugang zu den inneren Funktionen deines Windows 11 Betriebssystems.</p>
+        </div>
+
+        <div class="card fadeIn">
+            <h5 class="card-title"><i class="fas fa-tools"></i> Entwickelt von Unabhängigen Entwicklern</h5>
+            <p class="card-text">Aether wurde von einem Team engagierter, unabhängiger Entwickler geschaffen.</p>
+        </div>
+
+        <div class="download fadeIn">
+            <button class="btn" onclick="downloadAether()">Aether herunterladen</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Cayden's Website © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function downloadAether() {
+            const confirmation = confirm("Möchtest du aether.exe herunterladen?");
+            if (confirmation) {
+                window.location.href = 'projekte/aether.exe';
+            }
+        }
+    </script>
+</body>
+
+</html>
