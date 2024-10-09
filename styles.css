@@ -1,7 +1,12 @@
+@font-face {
+    font-family: 'DIN 1451';
+    src: url('fonts/DIN1451.ttf') format('truetype');
+}
+
 body {
     background-color: #000000; 
     color: #e0e0e0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DIN 1451', sans-serif; 
     margin: 0;
     padding: 0;
 }
@@ -35,12 +40,13 @@ h1 {
     margin: 20px;
     width: 300px; 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 16px 40px rgba(107, 70, 193, 0.7);
+    border-color: #9b59b6; /* Change border color on hover */
 }
 
 .card-title {
