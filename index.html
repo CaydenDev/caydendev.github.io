@@ -21,6 +21,12 @@
             <p class="card-text">Ein einfaches Terminal für Windows 11. Klicke auf den Button, um Aether herunterzuladen.</p>
             <button class="btn" onclick="downloadAether()">Aether herunterladen</button>
         </div>
+
+        <div class="card fadeIn">
+            <h5 class="card-title">Cryptix</h5>
+            <p class="card-text">Ein einfaches Verschlüsselungs- und Entschlüsselungsprogramm. Klicke auf den Button, um Cryptix herunterzuladen.</p>
+            <button class="btn" onclick="downloadCryptix()">Cryptix herunterladen</button>
+        </div>
     </main>
 
     <footer class="footer">
@@ -32,6 +38,13 @@
             const confirmation = confirm("Möchtest du aether.exe herunterladen?");
             if (confirmation) {
                 window.location.href = 'projekte/aether.exe';
+            }
+        }
+
+        function downloadCryptix() {
+            const confirmation = confirm("Möchtest du file_encryptor.exe herunterladen?");
+            if (confirmation) {
+                window.location.href = 'projekte/file_encryptor.exe';
             }
         }
     </script>
