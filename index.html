@@ -34,11 +34,11 @@
             <button class="btn" onclick="downloadTexy()">Texy herunterladen</button>
         </div>
 
-        <!-- Neue Box für Notable hinzufügen -->
-        <div class="card fadeIn">
+        <div class="card fadeIn" style="flex-basis: 100%; margin-top: 20px;">
             <h5 class="card-title">Notable</h5>
             <p class="card-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
             <button class="btn" onclick="downloadNotable()">Notable herunterladen</button>
+            <button class="btn" onclick="redirectToGitea()">Gitea Repo</button>
         </div>
     </main>
 
@@ -68,8 +68,12 @@
         function downloadNotable() {
             const confirmation = confirm("Möchtest du noteable.exe herunterladen?");
             if (confirmation) {
-                window.location.href = '/projekte/noteable.exe';
+                window.location.href = '/projects/noteable.exe';
             }
+        }
+
+        function redirectToGitea() {
+            window.open("https://gitea.com/CaydenDev/noteable", "_blank");
         }
     </script>
 </body>
