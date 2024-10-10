@@ -96,6 +96,29 @@ h1 {
     animation: fadeIn 0.5s forwards;
 }
 
+
+.notable-box {
+    background-color: #1f1f1f;
+    border: 2px solid #6b46c1; 
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px auto;
+    width: calc(100% - 60px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    text-align: center; 
+}
+
+.notable-title {
+    font-size: 2rem; 
+    margin-bottom: 15px;
+}
+
+.notable-text {
+    font-size: 1.2rem;
+    line-height: 1.6; 
+}
+
+
 @keyframes fadeIn {
     to {
         opacity: 1;
