@@ -33,14 +33,14 @@
             <p class="card-text">Ein einfacher Code-Editor/Text-Editor für ein selbst geschaffenes Assembly x86 OS. Klicke auf den Button, um das net8.zip herunterzuladen.</p>
             <button class="btn" onclick="downloadTexy()">Texy herunterladen</button>
         </div>
-
-        <div class="notable-box fadeIn">
-            <h5 class="notable-title">Notable</h5>
-            <p class="notable-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
-            <button class="btn" onclick="downloadNotable()">Notable herunterladen</button>
-            <button class="btn" onclick="redirectToGitea()">Gitea Repo</button>
-        </div>
     </main>
+
+    <div class="notable-box fadeIn">
+        <h5 class="notable-title">Notable</h5>
+        <p class="notable-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
+        <button class="btn" onclick="downloadNotable()">Notable herunterladen</button>
+        <button class="btn" onclick="redirectToGitea()">Gitea Repo</button>
+    </div>
 
     <footer class="footer">
         <p>Cayden's Website © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
@@ -68,7 +68,7 @@
         function downloadNotable() {
             const confirmation = confirm("Möchtest du noteable.exe herunterladen?");
             if (confirmation) {
-                window.location.href = '/projects/noteable.exe';
+                window.location.href = '/projekte/noteable.exe';
             }
         }
 
