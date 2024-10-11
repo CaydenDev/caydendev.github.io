@@ -122,33 +122,50 @@ body, html {
 }
 
 .custom-button, .icon-button {
-    background-color: #4b4b4b;
+    background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
     color: #e0e0e0;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
 }
 
 .custom-button:hover, .icon-button:hover {
-    background-color: #5a5a5a;
+    background: linear-gradient(145deg, #3a3a3a, #2c2c2c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active, .icon-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .icon-button {
-    padding: 6px;
-    font-size: 12px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.custom-button i, .icon-button i {
+    margin-right: 8px;
 }
 
 .custom-select {
     background-color: #4b4b4b;
     color: #e0e0e0;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 8px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -156,9 +173,46 @@ body, html {
     background-repeat: no-repeat;
     background-position-x: 95%;
     background-position-y: 50%;
-    padding-right: 30px;
+    padding-right: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .custom-select:hover {
     background-color: #5a5a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #3c3c3c;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+    }
+
+    .custom-button, .icon-button, .custom-select {
+        flex-grow: 1;
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-button, .icon-button, .custom-select {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .icon-button {
+        padding: 12px;
+    }
 }
