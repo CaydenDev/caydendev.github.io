@@ -2,7 +2,9 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
 
 .editor-container {
@@ -12,10 +14,25 @@ body, html {
 }
 
 .toolbar {
-    background-color: #f0f0f0;
+    background-color: #252526;
     padding: 10px;
     display: flex;
     gap: 10px;
+    align-items: center;
+}
+
+.toolbar button, .toolbar select {
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.toolbar button:hover, .toolbar select:hover {
+    background-color: #4c4c4c;
 }
 
 .main-content {
@@ -24,38 +41,74 @@ body, html {
 }
 
 .file-explorer {
-    width: 200px;
-    background-color: #f8f8f8;
+    width: 250px;
+    background-color: #252526;
     padding: 10px;
     overflow-y: auto;
+}
+
+.editor-and-console {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .editor-wrapper {
     flex-grow: 1;
 }
 
-.CodeMirror {
-    height: 100% !important;
+.console-wrapper {
+    height: 150px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #3c3c3c;
+    display: flex;
+    flex-direction: column;
 }
 
-#fileList {
+#console-output {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-family: monospace;
+}
+
+#console-input {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: none;
+    padding: 8px;
+    font-family: monospace;
+}
+
+.CodeMirror {
+    height: 100% !important;
+    font-size: 14px;
+}
+
+#fileTree {
     list-style-type: none;
     padding: 0;
 }
 
-#fileList li {
+#fileTree li {
     cursor: pointer;
     padding: 5px;
-    margin-bottom: 5px;
-    background-color: #e0e0e0;
+    margin-bottom: 2px;
     border-radius: 3px;
 }
 
-#fileList li:hover {
-    background-color: #d0d0d0;
+#fileTree li:hover {
+    background-color: #2d2d2d;
 }
 
-button, select {
-    padding: 5px 10px;
-    cursor: pointer;
+.folder > span {
+    font-weight: bold;
+}
+
+.file {
+    margin-left: 15px;
+}
+
+.folder-contents {
+    margin-left: 15px;
 }
