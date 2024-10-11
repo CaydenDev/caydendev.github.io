@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aether Editor</title>
+    <title>Enhanced Cloud Code Editor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="editor.css">
 </head>
 <body>
     <div class="editor-container">
-        <div class="toolbar">
-            <button id="newFileBtn" title="New File"><i class="fas fa-file-plus"></i></button>
-            <button id="newFolderBtn" title="New Folder"><i class="fas fa-folder-plus"></i></button>
-            <button id="saveBtn" title="Save"><i class="fas fa-save"></i></button>
-            <select id="languageSelect">
-                <option value="javascript">JavaScript</option>
-                <option value="typescript">TypeScript</option>
-                <option value="jsx">React (JSX)</option>
-                <option value="html">HTML</option>
-                <option value="css">CSS</option>
-                <option value="python">Python</option>
-                <option value="clike">C++</option>
-                <option value="vue">Vue.js</option>
-            </select>
-        </div>
-        <div class="main-content">
+        <div class="sidebar">
+            <div class="logo">Aether Editor</div>
             <div class="file-explorer">
-                <h3>Files</h3>
+                <div class="file-explorer-header">
+                    <h3>Files</h3>
+                    <button id="newFileBtn" class="icon-button" title="New File"><i class="fas fa-file-plus"></i></button>
+                    <button id="newFolderBtn" class="icon-button" title="New Folder"><i class="fas fa-folder-plus"></i></button>
+                </div>
                 <ul id="fileTree"></ul>
             </div>
-            <div class="editor-and-console">
-                <div class="editor-wrapper">
-                    <textarea id="editor"></textarea>
-                </div>
-                <div class="console-wrapper">
-                    <div id="console-output"></div>
-                    <input type="text" id="console-input" placeholder="Enter JavaScript code to execute">
-                </div>
+        </div>
+        <div class="main-content">
+            <div class="toolbar">
+                <button id="saveBtn" class="custom-button" title="Save"><i class="fas fa-save"></i> Save</button>
+                <select id="languageSelect" class="custom-select">
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="jsx">React (JSX)</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="python">Python</option>
+                    <option value="clike">C++</option>
+                    <option value="vue">Vue.js</option>
+                </select>
+            </div>
+            <div class="editor-wrapper">
+                <textarea id="editor"></textarea>
+            </div>
+            <div class="console-wrapper">
+                <div id="console-output"></div>
+                <input type="text" id="console-input" placeholder="Enter JavaScript code to execute">
             </div>
         </div>
     </div>
