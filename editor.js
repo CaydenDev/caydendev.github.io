@@ -9,8 +9,14 @@ const fileSystem = {
 function initializeEditor() {
     editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
         lineNumbers: true,
-        theme: "dracula",
-        mode: "javascript"
+        theme: "monokai",
+        mode: "javascript",
+        autoCloseBrackets: true,
+        matchBrackets: true,
+        indentUnit: 4,
+        tabSize: 4,
+        indentWithTabs: true,
+        lineWrapping: true
     });
 
     editor.on("change", () => {
