@@ -25,7 +25,10 @@ const AetherEditor = (() => {
             }
         });
 
-        loadFromLocalStorage().then(updateFileTree);
+        loadFromLocalStorage().then(() => {
+            updateFileTree();
+            loadFromURLParams();
+        });
     };
 
     const createNewFile = (fileName, language) => {
@@ -154,10 +157,45 @@ const AetherEditor = (() => {
         if (currentFile) {
             currentFile.content = editor.getValue();
             saveToLocalStorage(fileSystem);
+            updateURLParams();
             alert("File saved successfully!");
         } else {
             alert("No file is currently selected.");
         }
+    };
+
+    const updateURLParams = () => {
+        const encodedData = btoa(JSON.stringify(fileSystem));
+        const newURL = `${window.location.pathname}?data=${encodedData}`;
+        window.history.pushState({ path: newURL }, '', newURL);
+    };
+
+    const loadFromURLParams = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const encodedData = urlParams.get('data');
+        if (encodedData) {
+            try {
+                const decodedData = JSON.parse(atob(encodedData));
+                Object.assign(fileSystem, decodedData);
+                updateFileTree();
+                if (fileSystem.children.length > 0) {
+                    selectFile(fileSystem.children[0]);
+                }
+            } catch (error) {
+                console.error("Error loading data from URL:", error);
+            }
+        }
+    };
+
+    const generateShareableLink = () => {
+        const currentURL = window.location.href;
+        const tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = currentURL;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Shareable link copied to clipboard!");
     };
 
     const init = () => {
@@ -171,6 +209,7 @@ const AetherEditor = (() => {
             if (folderName) createNewFolder(folderName);
         });
         document.getElementById("saveBtn").addEventListener("click", saveFile);
+        document.getElementById("shareBtn").addEventListener("click", generateShareableLink);
         document.getElementById("languageSelect").addEventListener("change", (e) => changeLanguage(e.target.value));
         setupConsole();
     };
