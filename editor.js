@@ -5,7 +5,7 @@ const AetherEditor = (() => {
     const initializeEditor = () => {
         editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
-            theme: "monokai",
+            theme: "vscode-dark",
             mode: "javascript",
             autoCloseBrackets: true,
             matchBrackets: true,
@@ -128,6 +128,20 @@ const AetherEditor = (() => {
         });
     };
 
+    const saveFileToDevice = () => {
+        if (currentFile) {
+            const blob = new Blob([currentFile.content], {type: 'text/plain'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = currentFile.name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } else {
+            alert("No file is currently selected.");
+        }
+    };
+
     const init = () => {
         initializeEditor();
         document.getElementById("newFileBtn").addEventListener("click", () => {
@@ -138,7 +152,7 @@ const AetherEditor = (() => {
             const folderName = prompt("Enter folder name:");
             if (folderName) createNewFolder(folderName);
         });
-        document.getElementById("saveBtn").addEventListener("click", () => saveToLocalStorage(fileSystem));
+        document.getElementById("saveBtn").addEventListener("click", saveFileToDevice);
         document.getElementById("languageSelect").addEventListener("change", (e) => changeLanguage(e.target.value));
         setupConsole();
     };
