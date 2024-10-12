@@ -397,3 +397,17 @@ body, html {
     visibility: visible;
     opacity: 1;
 }
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 5px;
+    padding: 2px;
+}
+
+.delete-btn:hover {
+    color: #f44336;
+}

@@ -5,7 +5,7 @@ const AetherEditor = (() => {
     const initializeEditor = () => {
         editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
-            theme: "vscode-dark",
+            theme: "vs-dark",
             mode: "javascript",
             autoCloseBrackets: true,
             matchBrackets: true,
@@ -52,6 +52,19 @@ const AetherEditor = (() => {
         saveToLocalStorage(fileSystem);
     };
 
+    const deleteItem = (item, parent = fileSystem) => {
+        const index = parent.children.findIndex(child => child === item);
+        if (index !== -1) {
+            parent.children.splice(index, 1);
+            if (item === currentFile) {
+                currentFile = null;
+                editor.setValue("");
+            }
+            updateFileTree();
+            saveToLocalStorage(fileSystem);
+        }
+    };
+
     const updateFileTree = () => {
         const fileTree = document.getElementById("fileTree");
         fileTree.innerHTML = "";
@@ -74,6 +87,15 @@ const AetherEditor = (() => {
         } else {
             li.addEventListener('click', () => selectFile(item));
         }
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            deleteItem(item);
+        });
+        li.appendChild(deleteBtn);
 
         parentElement.appendChild(li);
     };
