@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="editor.css">
+    <meta name="description" content="Aether Editor - A modern code editor with file management and console execution capabilities.">
 </head>
 <body>
-    <div class="editor-container">
-        <div class="sidebar">
-            <div class="logo">Aether Editor</div>
+    <header class="editor-header">
+        <div class="logo">Aether Editor</div>
+    </header>
+    <main class="editor-container">
+        <aside class="sidebar">
             <div class="file-explorer">
                 <div class="file-explorer-header">
                     <h3>Files</h3>
                     <button id="newFileBtn" class="icon-button" title="New File"><i class="fas fa-file-plus"></i></button>
                     <button id="newFolderBtn" class="icon-button" title="New Folder"><i class="fas fa-folder-plus"></i></button>
                 </div>
-                <ul id="fileTree"></ul>
+                <ul id="fileTree" aria-label="File Explorer"></ul>
             </div>
-        </div>
-        <div class="main-content">
+        </aside>
+        <section class="main-content">
             <div class="toolbar">
                 <button id="saveBtn" class="custom-button" title="Save"><i class="fas fa-save"></i> Save</button>
-                <select id="languageSelect" class="custom-select">
+                <select id="languageSelect" class="custom-select" aria-label="Select Language">
                     <option value="javascript">JavaScript</option>
                     <option value="typescript">TypeScript</option>
                     <option value="jsx">React (JSX)</option>
@@ -40,11 +43,11 @@
                 <textarea id="editor"></textarea>
             </div>
             <div class="console-wrapper">
-                <div id="console-output"></div>
-                <input type="text" id="console-input" placeholder="Enter JavaScript code to execute">
+                <div id="console-output" aria-live="polite"></div>
+                <input type="text" id="console-input" placeholder="Enter code to execute" aria-label="Console Input">
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
