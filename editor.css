@@ -3,10 +3,9 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e1e;
-    color: #d4d4d4;
+    background-color: #282a36;
+    color: #f8f8f2;
 }
-
 
 .editor-container {
     display: flex;
@@ -14,13 +13,12 @@ body, html {
     transition: all 0.3s ease-in-out;
 }
 
-
 .sidebar {
     width: 300px;
-    background-color: #252526;
+    background-color: #44475a;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #3c3c3c;
+    border-right: 1px solid #6272a4;
     transition: width 0.3s ease-in-out;
 }
 
@@ -28,8 +26,8 @@ body, html {
     padding: 20px;
     font-size: 1.8em;
     font-weight: bold;
-    color: #61dafb;
-    background-color: #1e1e1e;
+    color: #ff79c6;
+    background-color: #282a36;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,26 +47,25 @@ body, html {
     align-items: center;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #3c3c3c;
+    border-bottom: 1px solid #6272a4;
 }
 
 .file-explorer-header h3 {
     margin: 0;
     font-size: 1.2em;
-    color: #61dafb;
+    color: #ff79c6;
 }
-
 
 .main-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease-in-out;
+    background-color: #282a36;
 }
 
-
 .toolbar {
-    background-color: #2d2d2d;
+    background-color: #44475a;
     padding: 10px 15px;
     display: flex;
     gap: 15px;
@@ -76,18 +73,16 @@ body, html {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .editor-wrapper {
     flex-grow: 1;
     overflow: hidden;
     position: relative;
 }
 
-
 .console-wrapper {
     height: 180px;
-    background-color: #1e1e1e;
-    border-top: 1px solid #3c3c3c;
+    background-color: #282a36;
+    border-top: 1px solid #6272a4;
     display: flex;
     flex-direction: column;
     transition: height 0.3s ease-in-out;
@@ -103,15 +98,14 @@ body, html {
 }
 
 #console-input {
-    background-color: #2d2d2d;
-    color: #d4d4d4;
+    background-color: #44475a;
+    color: #f8f8f2;
     border: none;
     padding: 12px 15px;
     font-family: 'Fira Code', monospace;
     font-size: 14px;
-    border-top: 1px solid #3c3c3c;
+    border-top: 1px solid #6272a4;
 }
-
 
 .CodeMirror {
     height: 100% !important;
@@ -121,14 +115,13 @@ body, html {
 }
 
 .cm-s-monokai .CodeMirror-gutters {
-    background-color: #2d2d2d;
-    border-right: 1px solid #3c3c3c;
+    background-color: #282a36;
+    border-right: 1px solid #6272a4;
 }
 
 .cm-s-monokai .CodeMirror-linenumber {
-    color: #606366;
+    color: #6272a4;
 }
-
 
 #fileTree {
     list-style-type: none;
@@ -145,27 +138,26 @@ body, html {
 }
 
 #fileTree li:hover {
-    background-color: #3c3c3c;
+    background-color: #44475a;
 }
 
 .folder > span {
     font-weight: bold;
-    color: #e6c07b;
+    color: #ff79c6;
 }
 
 .file {
     margin-left: 20px;
-    color: #9da5b4;
+    color: #f8f8f2;
 }
 
 .folder-contents {
     margin-left: 20px;
 }
 
-
 .custom-button, .icon-button {
-    background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
-    color: #d4d4d4;
+    background: linear-gradient(145deg, #44475a, #3c3f58);
+    color: #f8f8f2;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -182,7 +174,7 @@ body, html {
 }
 
 .custom-button:hover, .icon-button:hover {
-    background: linear-gradient(145deg, #3a3a3a, #2c2c2c);
+    background: linear-gradient(145deg, #3c3f58, #44475a);
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -201,10 +193,9 @@ body, html {
     margin-right: 8px;
 }
 
-
 .custom-select {
-    background-color: #3c3c3c;
-    color: #d4d4d4;
+    background-color: #44475a;
+    color: #f8f8f2;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -213,7 +204,7 @@ body, html {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23d4d4d4" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23f8f8f2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
     background-repeat: no-repeat;
     background-position-x: 95%;
     background-position-y: 50%;
@@ -223,30 +214,28 @@ body, html {
 }
 
 .custom-select:hover {
-    background-color: #4a4a4a;
+    background-color: #3c3f58;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e1e1e;
+    background: #282a36;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3c3c3c;
+    background: #44475a;
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4a4a4a;
+    background: #6272a4;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .editor-container {
         flex-direction: column;
@@ -256,7 +245,7 @@ body, html {
         width: 100%;
         height: auto;
         border-right: none;
-        border-bottom: 1px solid #3c3c3c;
+        border-bottom: 1px solid #6272a4;
     }
 
     .toolbar {
@@ -280,7 +269,6 @@ body, html {
     }
 }
 
-
 #newFileBtn::before {
     content: "\f15b";
     font-family: "Font Awesome 5 Free";
@@ -302,13 +290,12 @@ body, html {
     margin-right: 8px;
 }
 
-
 .file-icon::before {
     content: "\f15b";
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
     margin-right: 8px;
-    color: #9da5b4;
+    color: #f8f8f2;
 }
 
 .folder-icon::before {
@@ -316,9 +303,8 @@ body, html {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 8px;
-    color: #e6c07b;
+    color: #ff79c6;
 }
-
 
 .cm-s-monokai .cm-keyword { color: #ff79c6; }
 .cm-s-monokai .cm-operator { color: #ff79c6; }
@@ -342,7 +328,6 @@ body, html {
     color: #ff5555;
     background-color: #f8f8f0;
 }
-
 
 .editor-info {
     position: absolute;
@@ -369,7 +354,6 @@ body, html {
 .CodeMirror-selected {
     background-color: rgba(255, 255, 255, 0.2) !important;
 }
-
 
 .tooltip {
     position: relative;
@@ -409,5 +393,5 @@ body, html {
 }
 
 .delete-btn:hover {
-    color: #f44336;
+    color: #ff5555;
 }

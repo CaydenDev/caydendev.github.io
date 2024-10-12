@@ -1,70 +1,44 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aether Editor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@upleveled/theme-vs-code-dark-plus@1.0.0/theme-vs-code-dark-plus.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="editor.css">
-    <meta name="description" content="Aether Editor - A modern code editor with file management and console execution capabilities.">
+    <title>Aether Terminal - Cayden's Website</title>
+    <link rel="stylesheet" href="aether.css">
+    <link rel="icon" href="aether-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header class="editor-header">
-        <div class="logo">Aether Editor</div>
-    </header>
-    <main class="editor-container">
-        <aside class="sidebar">
-            <div class="file-explorer">
-                <div class="file-explorer-header">
-                    <h3>Files</h3>
-                    <button id="newFileBtn" class="icon-button tooltip" title="New File">
-                        <i class="fas fa-file-plus"></i>
-                        <span class="tooltiptext">Create New File</span>
-                    </button>
-                    <button id="newFolderBtn" class="icon-button tooltip" title="New Folder">
-                        <i class="fas fa-folder-plus"></i>
-                        <span class="tooltiptext">Create New Folder</span>
-                    </button>
+
+<header class="header">
+    <h1 class="fadeIn">Aether Terminal</h1>
+    <p class="lead fadeIn">Die Privatsphäre in deiner Hand</p>
+</header>
+
+<main class="container">
+    <div class="cards">
+        <div class="card fadeIn">
+            <h5 class="card-title"><i class="fas fa-lock"></i> Datenschutz</h5>
+            <p class="card-text">Aether ist auf Privatsphäre und Datenschutz fokussiert, damit deine Daten sicher sind.</p>
+
+            <div class="card fadeIn">
+                <h5 class="card-title"><i class="fas fa-cog"></i> Systemzugriff</h5>
+                <p class="card-text">Direkter Zugang zu den inneren Funktionen deines Windows 11 Betriebssystems.</p>
+
+                <div class="card fadeIn">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Unabhängige Entwickler</h5>
+                    <p class="card-text">Aether wurde von einem Team engagierter, unabhängiger Entwickler geschaffen.</p>
+
                 </div>
-                <ul id="fileTree" aria-label="File Explorer"></ul>
-            </div>
-        </aside>
-        <section class="main-content">
-            <div class="toolbar">
-                <button id="saveBtn" class="custom-button tooltip" title="Save">
-                    <i class="fas fa-save"></i> Save
-                    <span class="tooltiptext">Save Changes</span>
-                </button>
-                <select id="languageSelect" class="custom-select" aria-label="Select Language">
-                    <option value="javascript">JavaScript</option>
-                    <option value="typescript">TypeScript</option>
-                    <option value="jsx">React (JSX)</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="python">Python</option>
-                    <option value="clike">C++</option>
-                    <option value="vue">Vue.js</option>
-                </select>
-            </div>
-            <div class="editor-wrapper">
-                <textarea id="editor"></textarea>
-                <div class="editor-info"></div>
-            </div>
-            <div class="console-wrapper">
-                <div id="console-output" aria-live="polite"></div>
-                <input type="text" id="console-input" placeholder="Enter code to execute" aria-label="Console Input">
-            </div>
-        </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/vue/vue.min.js"></script>
-    <script src="editor.js"></script>
-</body>
+                <div class="download fadeIn">
+                    <button class="btn" onclick="downloadAether()">Aether herunterladen</button>
+                </div>
+
+                <footer class="footer">
+                    <p>Cayden's Website © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
+                </footer>
+                <script>
+                    function downloadAether() {
+                        const confirmation = confirm("Möchtest du aether.exe herunterladen?");
+                        if (confirmation) {
+                            window.location.href = 'projekte/aether.exe';
+                        }
+                    }
+                </script>
 </html>

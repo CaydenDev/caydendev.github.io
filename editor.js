@@ -5,7 +5,7 @@ const AetherEditor = (() => {
     const initializeEditor = () => {
         editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
-            theme: "monokai",
+            theme: "dracula",
             mode: "javascript",
             autoCloseBrackets: true,
             matchBrackets: true,
