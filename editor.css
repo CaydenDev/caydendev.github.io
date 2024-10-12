@@ -290,6 +290,13 @@ body, html {
     margin-right: 8px;
 }
 
+#shareBtn::before {
+    content: "\f1e0";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 8px;
+}
+
 .file-icon::before {
     content: "\f15b";
     font-family: "Font Awesome 5 Free";
@@ -423,4 +430,40 @@ body, html {
 
 #login-button i {
     margin-right: 10px;
+}
+
+#shareBtn {
+    background: linear-gradient(145deg, #44475a, #3c3f58);
+    color: #f8f8f2;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
+    outline: none;
+}
+
+#shareBtn:hover {
+    background: linear-gradient(145deg, #3c3f58, #44475a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#shareBtn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#shareBtn::before {
+    content: "\f1e0";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 8px;
 }
