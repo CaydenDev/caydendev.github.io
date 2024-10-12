@@ -150,15 +150,11 @@ const AetherEditor = (() => {
         });
     };
 
-    const saveFileToDevice = () => {
+    const saveFile = () => {
         if (currentFile) {
-            const blob = new Blob([currentFile.content], {type: 'text/plain'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = currentFile.name;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            currentFile.content = editor.getValue();
+            saveToLocalStorage(fileSystem);
+            alert("File saved successfully!");
         } else {
             alert("No file is currently selected.");
         }
@@ -174,7 +170,7 @@ const AetherEditor = (() => {
             const folderName = prompt("Enter folder name:");
             if (folderName) createNewFolder(folderName);
         });
-        document.getElementById("saveBtn").addEventListener("click", saveFileToDevice);
+        document.getElementById("saveBtn").addEventListener("click", saveFile);
         document.getElementById("languageSelect").addEventListener("change", (e) => changeLanguage(e.target.value));
         setupConsole();
     };
