@@ -19,15 +19,24 @@
             <div class="file-explorer">
                 <div class="file-explorer-header">
                     <h3>Files</h3>
-                    <button id="newFileBtn" class="icon-button" title="New File"><i class="fas fa-file-plus"></i></button>
-                    <button id="newFolderBtn" class="icon-button" title="New Folder"><i class="fas fa-folder-plus"></i></button>
+                    <button id="newFileBtn" class="icon-button tooltip" title="New File">
+                        <i class="fas fa-file-plus"></i>
+                        <span class="tooltiptext">Create New File</span>
+                    </button>
+                    <button id="newFolderBtn" class="icon-button tooltip" title="New Folder">
+                        <i class="fas fa-folder-plus"></i>
+                        <span class="tooltiptext">Create New Folder</span>
+                    </button>
                 </div>
                 <ul id="fileTree" aria-label="File Explorer"></ul>
             </div>
         </aside>
         <section class="main-content">
             <div class="toolbar">
-                <button id="saveBtn" class="custom-button" title="Save"><i class="fas fa-save"></i> Save</button>
+                <button id="saveBtn" class="custom-button tooltip" title="Save">
+                    <i class="fas fa-save"></i> Save
+                    <span class="tooltiptext">Save Changes</span>
+                </button>
                 <select id="languageSelect" class="custom-select" aria-label="Select Language">
                     <option value="javascript">JavaScript</option>
                     <option value="typescript">TypeScript</option>
@@ -41,6 +50,7 @@
             </div>
             <div class="editor-wrapper">
                 <textarea id="editor"></textarea>
+                <div class="editor-info"></div>
             </div>
             <div class="console-wrapper">
                 <div id="console-output" aria-live="polite"></div>
