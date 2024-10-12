@@ -395,3 +395,32 @@ body, html {
 .delete-btn:hover {
     color: #ff5555;
 }
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+.auth-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.auth-container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+#login-button {
+    font-size: 1.2em;
+    padding: 15px 30px;
+}
+
+#login-button i {
+    margin-right: 10px;
+}
