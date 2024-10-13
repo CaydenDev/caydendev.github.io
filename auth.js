@@ -1,4 +1,4 @@
-const CLIENT_ID = '1048334234084978799';
+const CLIENT_ID = '1048334234084978799'; // ClientID meiner Discord Applikation
 const REDIRECT_URI = 'https://caydendev.github.io/editor.html';
 const ALLOWED_USER_ID = '1004744186966311022';
 
