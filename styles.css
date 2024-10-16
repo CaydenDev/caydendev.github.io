@@ -117,21 +117,21 @@ h1 {
     font-size: 1.2rem;
     line-height: 1.6; 
 }
-
 .footer-links {
     margin-top: 10px;
     font-size: 1rem;
 }
 
 .footer-link {
-    color: #6b46c1;
+    color: #e0e0e0; 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #9b59b6;
+    color: #ffffff;
 }
+
 
 
 @keyframes fadeIn {
