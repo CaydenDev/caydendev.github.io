@@ -118,6 +118,19 @@ h1 {
     line-height: 1.6; 
 }
 
+.editor-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #6b46c1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.editor-link:hover {
+    color: #9b59b6;
+}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
