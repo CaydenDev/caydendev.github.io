@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aetherapp Ventures entwickelt innovative Software-Lösungen wie das Aether Terminal, um die Zukunft der Technologie zu gestalten.">
+    <title>Aetherapp Ventures - Innovative Software-Lösungen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .parallax__layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .parallax__layer--back {
+            transform: translateZ(-1px) scale(2);
+        }
+
+        .parallax__layer--base {
+            transform: translateZ(0);
+        }
+
+        .terminal {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .terminal-button-red { background-color: #ef4444; }
+        .terminal-button-yellow { background-color: #f59e0b; }
+        .terminal-button-green { background-color: #10b981; }
+
+        .terminal-content {
+            color: #a3e635;
+        }
+
+        .cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="parallax">
+    <div class="parallax__layer parallax__layer--back">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900 opacity-50"></div>
+    </div>
+    
+    <div class="parallax__layer parallax__layer--base">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
+            <nav class="container mx-auto px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold gradient-text">Aetherapp Ventures</a>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Über uns</a>
+                        <a href="#projects" class="text-gray-300 hover:text-white transition duration-300">Projekte</a>
+                        <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Kontakt</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero" class="min-h-screen flex items-center justify-center text-center">
+                <div class="container mx-auto px-6">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">Aetherapp Ventures</h1>
+                    <p class="text-xl md:text-2xl mb-8">Innovative Software-Lösungen für die Zukunft</p>
+                    <a href="#about" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">Entdecke unsere Vision</a>
+                </div>
+            </section>
+
+            <section id="about" class="py-20">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Über Aetherapp Ventures</h2>
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-1/2 mb-8 md:mb-0">
+                            <p class="text-lg mb-4">Aetherapp Ventures ist eine innovative Software-Organisation, die sich der Entwicklung und Pflege fortschrittlicher Anwendungen widmet. Unser Ziel ist es, die Langlebigkeit unserer Produkte durch aktive Community-Beteiligung zu gewährleisten.</p>
+                            <p class="text-lg">Wir glauben an die Kraft der Open-Source-Entwicklung und streben danach, Werkzeuge zu schaffen, die die Art und Weise, wie wir mit Technologie interagieren, revolutionieren.</p>
+                        </div>
+                        <div class="md:w-1/2 floating">
+                            <img src="/images/aether.svg?height=300&width=300" alt="Aetherapp Ventures Logo" class="mx-auto rounded-full shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="py-20 bg-gray-900">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Unsere Projekte</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-gray-800 rounded-lg p-6 transform transition duration-500 hover:scale-105">
+                            <h3 class="text-2xl font-bold mb-4">Aether Terminal</h3>
+                            <p class="mb-4">Unser Flaggschiff-Projekt: Ein fortschrittliches Terminal, geschrieben in C++ und nahtlos in die Windows CMD integriert. Es bietet erweiterte Funktionen und eine verbesserte Benutzeroberfläche für Entwickler und Power-User.</p>
+                            <a href="https://github.com/Aetherapp-ventures/aether-terminal" target="_blank" class="text-blue-400 hover:text-blue-300">GitHub Repository →</a>
+                        </div>
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div>
+                                    <span class="terminal-button terminal-button-red"></span>
+                                    <span class="terminal-button terminal-button-yellow"></span>
+                                    <span class="terminal-button terminal-button-green"></span>
+                                </div>
+                                <span class="text-gray-400">Aether Terminal</span>
+                            </div>
+                            <div class="terminal-content">
+                                <p class="cursor" id="terminal-text"></p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6 transform transition duration-500 hover:scale-105">
+                            <h3 class="text-2xl font-bold mb-4">Zukünftige Projekte</h3>
+                            <p class="mb-4">Wir arbeiten ständig an neuen Ideen und Konzepten. Bleiben Sie auf dem Laufenden für kommende innovative Software-Lösungen von Aetherapp Ventures.</p>
+                            <a href="#contact" class="text-blue-400 hover:text-blue-300">Kontaktieren Sie uns für Updates →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="community" class="py-20">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Community-Beteiligung</h2>
+                    <div class="text-center">
+                        <p class="text-lg mb-6">Bei Aetherapp Ventures glauben wir an die Kraft der Gemeinschaft. Wir laden Entwickler, Enthusiasten und Kreative ein, sich an unseren Projekten zu beteiligen und zur Weiterentwicklung unserer Software beizutragen.</p>
+                        <a href="https://github.com/Aetherapp-ventures" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 inline-block">Beteilige dich auf GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="py-20 bg-gray-900">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold mb-8 gradient-text text-center">Kontaktiere Aetherapp Ventures</h2>
+                    <p class="text-center mb-8">Haben Sie Fragen, Vorschläge oder möchten Sie mit uns zusammenarbeiten? Wir freuen uns, von Ihnen zu hören!</p>
+                    <form class="max-w-lg mx-auto">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-3 py-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-300 mb-2">E-Mail</label>
+                            <input type="email" id="email" class="w-full px-3 py-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-300 mb-2">Nachricht</label>
+                            <textarea id="message" rows="4" class="w-full px-3 py-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 transform hover:scale-105">Senden</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-gray-900 py-8">
+            <div class="container mx-auto px-6 text-center">
+                <p>&copy; 2023 Aetherapp Ventures. Alle Rechte vorbehalten.</p>
+                <div class="mt-4">
+                    <a href="https://github.com/Aetherapp-ventures" target="_blank" class="text-gray-400 hover:text-white mx-2">GitHub</a>
+                    <a href="https://aetherapp-ventures.github.io/" target="_blank" class="text-gray-400 hover:text-white mx-2">Website</a>
+                    <a href="#" class="text-gray-400 hover:text-white mx-2">Datenschutz</a>
+                    <a href="#" class="text-gray-400 hover:text-white mx-2">Impressum</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const terminalText = "Willkommen beim Aether Terminal\n$ Initialisiere System...\n$ Lade Module...\n$ Aether Terminal bereit\n$ _";
+        let i = 0;
+        const speed = 50;
+
+        function typeWriter() {
+            if (i < terminalText.length) {
+                document.getElementById("terminal-text").innerHTML += terminalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('section').forEach((section, index) => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        
+        window.addEventListener('load', () => {
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
