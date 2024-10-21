@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Portfolio</title>
+    <style>
+        @font-face {
+            font-family: 'DIN 1451';
+            src: url('fonts/DIN1451.ttf') format('truetype');
+        }
+        body {
+            font-family: 'DIN 1451', Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            animation: bounce 1s infinite;
+            letter-spacing: 1px;
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-title {
+            font-size: 28px;
+            color: #3498db;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .project-description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .spin {
+            animation: spin 10s linear infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f0f0;
+            position: absolute;
+            top: -10px;
+            will-change: transform;
+        }
+        .emoji {
+            font-size: 30px;
+            margin: 0 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Super Awesome Portfolio <span class="emoji">🚀</span></h1>
+        <div class="project-card">
+            <h2 class="project-title floating">Aetherapp Ventures <span class="emoji spin">💫</span></h2>
+            <p class="project-description">Embark on a mind-bending journey through the digital realm with Aetherapp Ventures! It's not just an app, it's a portal to infinite possibilities!</p>
+            <a href="https://caydendev.github.io/sites/aetherapp/aetherapp.html" class="btn" id="projectLink">Explore the Aether</a>
+        </div>
+        <div>
+            <a href="https://caydendev.github.io/sites/aetherapp/aetherapp.html" class="btn" id="seeMoreLink">See More (If You Dare) <span class="emoji">👀</span></a>
+        </div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const colors = ['#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        function animateEmojis() {
+            const emojis = ['🚀', '💫', '🌈', '✨', '🎉'];
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.top = '50%';
+            container.style.left = '50%';
+            container.style.transform = 'translate(-50%, -50%)';
+            container.style.fontSize = '100px';
+            container.style.pointerEvents = 'none';
+            document.body.appendChild(container);
+
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.position = 'absolute';
+                    emoji.style.left = Math.random() * 200 - 100 + 'px';
+                    emoji.style.top = Math.random() * 200 - 100 + 'px';
+                    emoji.style.animation = `float ${Math.random() * 2 + 1}s ease-in-out infinite`;
+                    container.appendChild(emoji);
+
+                    setTimeout(() => {
+                        emoji.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+
+            setTimeout(() => {
+                container.remove();
+            }, 3000);
+        }
+
+        document.getElementById('projectLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            createConfetti();
+            setTimeout(() => {
+                window.location.href = e.target.href;
+            }, 1000);
+        });
+
+        document.getElementById('seeMoreLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            animateEmojis();
+            setTimeout(() => {
+                window.location.href = e.target.href;
+            }, 2000);
+        });
+
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.body.style.animation = 'spin 5s linear infinite';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 5000);
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+    </script>
+</body>
+</html>
