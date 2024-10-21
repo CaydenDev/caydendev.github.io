@@ -7,9 +7,30 @@
     <title>Cayden's Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="aether-icon.png" type="image/png">
+    <style>
+        .portfolio-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .portfolio-button:hover {
+            background-color: #45a049; 
+        }
+    </style>
 </head>
 
 <body>
+    <button class="portfolio-button" onclick="redirectToPortfolio()">Portfolio</button>
+
     <header class="header">
         <h1 class="fadeIn">Cayden's Website</h1>
         <p class="lead fadeIn">Dies ist meine Persönliche Website</p>
@@ -33,24 +54,23 @@
             <p class="card-text">Ein einfacher Code-Editor/Text-Editor für ein selbst geschaffenes Assembly x86 OS. Klicke auf den Button, um das net8.zip herunterzuladen.</p>
             <button class="btn" onclick="downloadTexy()">Texy herunterladen</button>
         </div>
+
+        <div class="card fadeIn">
+            <h5 class="card-title">Notable</h5>
+            <p class="card-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
+            <button class="btn" onclick="downloadNotable()">Notable herunterladen</button>
+            <button class="btn" onclick="redirectToGitea()">Gitea Repo</button>
+        </div>
+
     </main>
 
-    <div class="notable-box fadeIn">
-        <h5 class="notable-title">Notable</h5>
-        <p class="notable-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
-        <button class="btn" onclick="downloadNotable()">Notable herunterladen</button>
-        <button class="btn" onclick="redirectToGitea()">Gitea Repo</button>
-    </div>
-
     <footer class="footer">
-    <p>Cayden's Website © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
-    <div class="footer-links">
-        <a href="https://caydendev.github.io/editor" class="footer-link">Editor</a> | 
-        <a href="https://caydendev.github.io/aether.html" class="footer-link">Aether Terminal</a>
-    </div>
+        <p>Cayden's Website © 2024 by CaydenDev. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="https://caydendev.github.io/editor" class="footer-link">Editor</a> | 
+            <a href="https://caydendev.github.io/aether.html" class="footer-link">Aether Terminal</a>
+        </div>
     </footer>
-
-
 
     <script>
         function redirectToAether() {
@@ -80,6 +100,10 @@
 
         function redirectToGitea() {
             window.open("https://gitea.com/CaydenDev/noteable", "_blank");
+        }
+
+        function redirectToPortfolio() {
+            window.location.href = "https://caydendev.github.io/sites/overview/overview.html";
         }
     </script>
 </body>
