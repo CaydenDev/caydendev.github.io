@@ -12,18 +12,20 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            padding: 10px 15px;
-            background-color: #4CAF50;
+            padding: 10px 20px;
+            background-color: #6b46c1;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 1rem; 
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000; 
         }
 
         .portfolio-button:hover {
-            background-color: #45a049; 
+            background-color: #553c9a; 
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -55,6 +57,7 @@
             <button class="btn" onclick="downloadTexy()">Texy herunterladen</button>
         </div>
 
+        <!-- New Project Card -->
         <div class="card fadeIn">
             <h5 class="card-title">Notable</h5>
             <p class="card-text">Eine bemerkenswerte, einfache Notiz-Anwendung für die x86-Architektur. Klicke auf den Button, um Notable herunterzuladen.</p>
