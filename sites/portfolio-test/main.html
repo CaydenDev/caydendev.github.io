@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Cayden's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+        :root {
+            --primary-color: #4ecdc4;
+            --secondary-color: #ff6b6b;
+            --background-color: #0f172a;
+            --text-color: #e2e8f0;
+            --card-background: rgba(30, 41, 59, 0.7);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
         .card {
-            background-color: rgba(30, 41, 59, 0.7);
+            background-color: var(--card-background);
             backdrop-filter: blur(10px);
             border-radius: 1rem;
             overflow: hidden;
@@ -32,14 +41,14 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .skill-bar {
-            height: 10px;
-            background-color: #4ecdc4;
-            border-radius: 5px;
+            height: 6px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
             transition: width 1s ease-in-out;
         }
 
@@ -54,7 +63,7 @@
 
         .typewriter {
             overflow: hidden;
-            border-right: 0.15em solid #4ecdc4;
+            border-right: 0.15em solid var(--primary-color);
             white-space: nowrap;
             margin: 0 auto;
             letter-spacing: 0.15em;
@@ -68,15 +77,15 @@
 
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #4ecdc4; }
+            50% { border-color: var(--primary-color); }
         }
 
         .scroll-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #4ecdc4;
-            color: #0f172a;
+            background-color: var(--primary-color);
+            color: var(--background-color);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -85,28 +94,65 @@
             align-items: center;
             font-size: 24px;
             cursor: pointer;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
             opacity: 0;
+            transform: scale(0.8);
         }
 
         .scroll-to-top.visible {
             opacity: 1;
+            transform: scale(1);
         }
 
         .dark-mode {
-            background-color: #e2e8f0;
-            color: #0f172a;
+            --background-color: #e2e8f0;
+            --text-color: #0f172a;
+            --card-background: rgba(203, 213, 225, 0.7);
         }
 
-        .dark-mode .card {
-            background-color: rgba(203, 213, 225, 0.7);
+        .project-image {
+            transition: transform 0.3s ease-in-out;
         }
 
-        .dark-mode .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #3b82f6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .skill-label {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill-bar-container:hover .skill-label {
+            transform: translateX(5px);
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .github-stats {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .github-stats:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -121,10 +167,10 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
                 <div class="flex items-center">
@@ -167,28 +213,25 @@
                 <div class="card p-8">
                     <h3 class="text-2xl font-semibold mb-4">Languages</h3>
                     <div class="space-y-4">
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>Python</span>
-                                <span>90%</span>
+                                <span class="skill-label">Python</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>JavaScript</span>
-                                <span>85%</span>
+                                <span class="skill-label">JavaScript</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>C++</span>
-                                <span>80%</span>
+                                <span class="skill-label">C++</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 80%"></div>
@@ -199,28 +242,25 @@
                 <div class="card p-8">
                     <h3 class="text-2xl font-semibold mb-4">Frameworks & Tools</h3>
                     <div class="space-y-4">
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>Visual Studio (Code)</span>
-                                <span>95%</span>
+                                <span class="skill-label">Visual Studio (Code)</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 95%"></div>
                             </div>
                         </div>
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>Docker</span>
-                                <span>88%</span>
+                                <span class="skill-label">Docker</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 88%"></div>
                             </div>
                         </div>
-                        <div>
+                        <div class="skill-bar-container">
                             <div class="flex justify-between mb-1">
-                                <span>React</span>
-                                <span>72%</span>
+                                <span class="skill-label">React</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full">
                                 <div class="skill-bar" style="width: 82%"></div>
@@ -234,7 +274,7 @@
         <section id="github-stats" class="mb-20" data-aos="fade-up">
             <h2 class="text-3xl font-bold mb-8 gradient-text">GitHub Stats</h2>
             <div class="card p-8">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=caydendev&langs_count=20&theme=dark" alt="Cayden's GitHub Stats" class="w-full h-auto">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=caydendev&langs_count=6&layout=compact&theme=dark&hide_border=true&bg_color=0D1117&title_color=4ecdc4&icon_color=4ecdc4&text_color=ffffff" alt="Cayden's GitHub Stats" class="w-full h-auto github-stats">
             </div>
         </section>
 
@@ -242,35 +282,41 @@
             <h2 class="text-3xl font-bold mb-8 gradient-text">Featured Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x200.png?text=Aether+Terminal" alt="Aether Terminal" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Aether Terminal</h3>
-                        <p class="text-gray-400 mb-4">A brief description of Project 1 and its key features.</p>
+                        <p class="text-gray-400 mb-4">A powerful and customizable terminal emulator with advanced features for developers.</p>
                         <div class="flex justify-between">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">View Demo</a>
-                            <a href="https://github.com/Aetherapp-ventures/aether-terminal" class="text-blue-400 hover:text-blue-300">GitHub</a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">View Demo</a>
+                            <a href="https://github.com/Aetherapp-ventures/aether-terminal" class="text-blue-400 hover:text-blue-300 transition duration-300">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x200.png?text=Coming+Soon" alt="Coming Soon" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">More Aetherapp (Project(s)) coming Soon.</h3>
-                        <p class="text-gray-400 mb-4">Soon.</p>
+                        <h3 class="text-xl font-semibold mb-2">More Aetherapp Projects</h3>
+                        <p class="text-gray-400 mb-4">Exciting new projects from Aetherapp coming soon. Stay tuned for updates!</p>
                         <div class="flex justify-between">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">View Demo</a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">GitHub</a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">View Demo</a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x200.png?text=Old+Aether+Terminal" alt="Old Aether Terminal" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">My Old Aether Terminal</h3>
-                        <p class="text-gray-400 mb-4">This is my Old Aether Terminal, before we Transitioned to an Aetherapp Maintained Terminal.</p>
+                        <h3 class="text-xl font-semibold  mb-2">My Old Aether Terminal</h3>
+                        <p class="text-gray-400 mb-4">The original Aether Terminal project, before transitioning to an Aetherapp maintained version.</p>
                         <div class="flex justify-between">
-                            <a href="N/A" class="text-blue-400 hover:text-blue-300">View Demo</a>
-                            <a href="https://github.com/CaydenDev/aether-terminal" class="text-blue-400 hover:text-blue-300">GitHub</a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">View Demo</a>
+                            <a href="https://github.com/CaydenDev/aether-terminal" class="text-blue-400 hover:text-blue-300 transition duration-300">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -291,7 +337,7 @@
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
-                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500  focus:ring focus:ring-blue-500 focus:ring-opacity-50"></textarea>
+                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"></textarea>
                     </div>
                     <div>
                         <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105">
@@ -309,13 +355,13 @@
                 <p>&copy; 2023 Cayden. All rights reserved.</p>
             </div>
             <div class="flex space-x-6">
-                <a href="#" class="text-gray-400 hover:text-white">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                     <i class="fab fa-github text-2xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-white">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                     <i class="fab fa-linkedin text-2xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-white">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                     <i class="fab fa-twitter text-2xl"></i>
                 </a>
             </div>
@@ -329,13 +375,11 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        
         AOS.init({
             duration: 1000,
             once: true,
         });
 
-        
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -354,7 +398,6 @@
             retina_detect: true,
         });
 
-        
         const scrollToTop = document.getElementById('scroll-to-top');
 
         window.addEventListener('scroll', () => {
@@ -369,17 +412,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        
         const contactForm = document.getElementById('contact-form');
 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
         });
 
-        
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         const body = document.body;
 
@@ -389,7 +429,6 @@
             darkModeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         });
 
-        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -397,6 +436,23 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            bar.setAttribute('data-width', width);
+            observer.observe(bar);
         });
     </script>
 </body>
